@@ -1,0 +1,38 @@
+drop table if exists ${hivevar:ods}.o_f_10008_loan_receipt;
+CREATE TABLE ${hivevar:ods}.o_f_10008_loan_receipt (
+  id bigint COMMENT '主键',
+  receipt_no varchar(32) COMMENT '借据编号',
+  asset_package_no varchar(64) COMMENT '资产池编号',
+  credit_apply_id bigint COMMENT '授信id',
+  loan_id bigint COMMENT '放款id',
+  loan_rate varchar(64) COMMENT '利率',
+  period varchar(5) COMMENT '期数',
+  repay_date date COMMENT '还款日期',
+  over_due_days varchar(5) COMMENT '逾期天数',
+  receipt_status varchar(5) COMMENT '借据状态 RP还款中 OD逾期 PF结清',
+  pay_off_date date COMMENT '结清日期',
+  repayment_amount decimal(19,2) COMMENT '应还总额',
+  repaid_amount decimal(19,2) COMMENT '已还总额',
+  unpaid_amount decimal(19,2) COMMENT '未还总额',
+  repayment_principal decimal(19,2) COMMENT '应还总额',
+  repaid_principal decimal(19,2) COMMENT '已还总额',
+  unpaid_principal decimal(19,2) COMMENT '未还总额',
+  repayment_interest decimal(19,2) COMMENT '应还总额',
+  repaid_interest decimal(19,2) COMMENT '已还总额',
+  unpaid_interest decimal(19,2) COMMENT '未还总额',
+  repayment_default_interest decimal(19,2) COMMENT '应还总额',
+  repaid_default_interest decimal(19,2) COMMENT '已还总额',
+  unpaid_default_interest decimal(19,2) COMMENT '未还总额',
+  repayment_overdue_interest decimal(19,2) COMMENT '应还总额',
+  repaid_overdue_interest decimal(19,2) COMMENT '已还总额',
+  unpaid_overdue_interest decimal(19,2) COMMENT '未还总额',
+  repayment_fee decimal(19,2) COMMENT '应还总额',
+  repaid_fee decimal(19,2) COMMENT '已还总额',
+  unpaid_fee decimal(19,2) COMMENT '未还总额',
+  created_time timestamp COMMENT '',
+  updated_time timestamp COMMENT '',
+  PRIMARY KEY (id) DISABLE NOVALIDATE
+) COMMENT '借据信息表'
+STORED AS PARQUET
+TBLPROPERTIES("parquet.compression"="snappy");
+

@@ -1,0 +1,45 @@
+drop table if exists ${hivevar:ods}.s_f_d_10008_repayment_apply;
+CREATE TABLE ${hivevar:ods}.s_f_d_10008_repayment_apply (
+  id bigint COMMENT '主键',
+  repay_no varchar(64) COMMENT '还款编号',
+  business_no varchar(64) COMMENT '业务流水号',
+  asset_package_no varchar(64) COMMENT '资产池编号',
+  credit_apply_id bigint COMMENT '授信Id',
+  loan_id bigint COMMENT '放款Id',
+  loan_no varchar(64) COMMENT '放款编号',
+  merchant_id varchar(64) COMMENT '商户Id',
+  fund_channel_no varchar(64) COMMENT '资金渠道标识',
+  fund_repay_no varchar(64) COMMENT '资金还款编号',
+  repay_account varchar(64) COMMENT '还款账号',
+  repay_acct_name varchar(64) COMMENT '还款账号名称',
+  repay_type varchar(2) COMMENT '还款类型 0正常还款 1逾期还当期 2全部结清 3按金额还款 4 提前还当期 5代偿还当期 6代偿整笔（回购）',
+  period int COMMENT '还款期数',
+  repayment_amount decimal(19,2) COMMENT '还款本息总金额',
+  guar_repay_amount decimal(19,2) COMMENT '融担还款金额',
+  repay_bank_name varchar(256) COMMENT '总行名称例如中国建设银行有限公司',
+  cnt_no varchar(32) COMMENT '共享协议码和卡号直接扣款的区别',
+  cnt_user_id varchar(64) COMMENT '协议共享用户ID',
+  apply_time timestamp COMMENT '发起还款时间 yyyyMMddHHmmss',
+  cust_real_repay_date timestamp COMMENT '客户真实还款日',
+  repay_method varchar(2) COMMENT '还款渠道 01资方扣款 02第三方支付扣款 03客户线下还款',
+  sign_channel varchar(32) COMMENT '签约渠道',
+  repay_time timestamp COMMENT '',
+  repay_amount decimal(19,2) COMMENT '还款金额',
+  repay_principal decimal(19,2) COMMENT '还款本金',
+  repay_interest decimal(19,2) COMMENT '还款利息',
+  repay_default_interest decimal(19,2) COMMENT '还款罚息',
+  repay_fee decimal(19,2) COMMENT '还款费用',
+  repay_late_fee decimal(19,2) COMMENT '还款违约金',
+  repay_overdue_interest decimal(19,2) COMMENT '还款复利',
+  deduction_amount decimal(19,2) COMMENT '减免金额',
+  repay_date date COMMENT '资方还款日期',
+  apply_status varchar(2) COMMENT '还款状态 S成功 F失败 P处理中',
+  cause String COMMENT '失败原因',
+  created_time timestamp COMMENT '',
+  updated_time timestamp COMMENT '',
+  PRIMARY KEY (id) DISABLE NOVALIDATE
+) COMMENT ''
+PARTITIONED BY (ETL_DATE DATE COMMENT '数据加载日期')
+STORED AS PARQUET
+TBLPROPERTIES("parquet.compression"="snappy");
+
