@@ -52,7 +52,7 @@ public class test {
         System.setProperty("logDirectory", currentDirectory);
 
         logger.info("开始读取");
-        String path = "C:\\Users\\14481\\Desktop\\test\\dwd层-dwd_a4l_d_f_fund_apply-授信申请信息表.xlsx";
+        String path = "C:\\Users\\14481\\Desktop\\dwd层-dwd_a4l_d_f_no_relation-润楼，资金，资产三方号码关联表.xlsx";
         Workbook workbook = ExcelReader.getReadWorkBookType(path);
         Sheet sheet = workbook.getSheetAt(2);
         HQL hql = sheetToHql(sheet);
@@ -68,7 +68,7 @@ public class test {
         System.setProperty("tool.root", currentDirectory);
 
         logger.debug("test");
-        String path = "D:\\共享文件夹\\dwd层-dwd_a4l_d_f_rd_data_apply-渠道申请信息.xlsx";
+        String path = "C:\\Users\\14481\\Desktop\\dwd层-dwd_a4l_d_f_no_relation-润楼，资金，资产三方号码关联表.xlsx";
         List<HQL> hqlList = excelToHalList(path);
         for (HQL hql : hqlList) {
             String sql = hql.toHQL();
@@ -79,7 +79,7 @@ public class test {
 
     @Test
     public void readTBname() throws Exception {
-        String path = "C:\\Users\\14481\\Desktop\\djt_quant-ODS层模型.xlsx";
+        String path = "C:\\Users\\14481\\Desktop\\ads_a4l_bi_mobile-ODS层模型.xlsx";
 
 
         Workbook workbook = ExcelReader.getReadWorkBookType(path);

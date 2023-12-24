@@ -7,6 +7,10 @@ import java.util.Map;
 public class ODSTB {
 
     Map<String, String> schemaNameToNums = new HashMap<String, String>() {{
+        put("kubera", "10013");
+        put("idp_admin", "10012");
+        put("ads_a4l_bi_mobile", "10011");
+        put("a4l_data_user", "10010");
         put("runlou_risk_decision_engine","10009");
         put("a4l_data_asset", "10008");
         put("runlou_saas_quant", "10007");

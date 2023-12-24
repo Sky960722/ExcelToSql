@@ -21,9 +21,9 @@ public class DWHQLReader {
 
     public static HQL sheetToHql(Sheet sheet) {
         String sheetName = sheet.getSheetName();
-        String regex = "^数据源_0[1-9]*$";
+        String regex = "^数据源_[0-9][0-9]*$";
         HQL hql = new HQL();
-        logger.info("检查当前sheet页是否满足正则：^数据源_0[1-9]*$  要求");
+        logger.info(sheetName+"检查当前sheet页是否满足正则：^数据源_0[1-9]*$  要求");
         boolean isMatchingSheetName = StringUtils.isMatching(sheetName, regex);
         if (isMatchingSheetName == false) {
             logger.error("当前数据页不符合格式，请检查-----"+sheetName);
