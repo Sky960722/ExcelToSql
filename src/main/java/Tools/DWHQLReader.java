@@ -85,7 +85,7 @@ public class DWHQLReader {
                 }
             } else if ("FROM".equals(cell0Text)) {
                 stringBuilder.append("FROM" + " " + getCellStringVal(row.getCell(1)).trim() + " " + getCellStringVal(row.getCell(2)).trim() + "\n");
-            } else if ("LEFT JOIN".equals(cell0Text) || "RIGHT JOIN".equals(cell0Text)) {
+            } else if ("LEFT JOIN".equals(cell0Text) || "RIGHT JOIN".equals(cell0Text) || "INNER JOIN".equals(cell0Text)) {
                 stringBuilder.append(cell0Text + " " + getCellStringVal(row.getCell(1)).trim() + " " + getCellStringVal(row.getCell(2)).trim() + "\n");
                 //添加ON 和 条件
                 stringBuilder.append(getCellStringVal(row.getCell(4)) + " " + getCellStringVal(row.getCell(5)) + "\n");
